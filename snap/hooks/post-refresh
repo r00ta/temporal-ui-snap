@@ -1,0 +1,20 @@
+#!/bin/bash -e
+
+CONFIG_FILE="${SNAP_COMMON}/config/production.yaml"
+
+if [ -f "$CONFIG_FILE" ]; then
+    echo "Config file found. Skipping initialization..."
+else
+  cat <<EOF > "${SNAP_COMMON}/config/production.yaml"
+temporalGrpcAddress: 127.0.0.1:7236
+host: 127.0.0.1
+port: 8233
+enableUi: true
+cors:
+  allowOrigins:
+    - http://localhost:8233
+defaultNamespace: default
+EOF
+    echo "Default ${SNAP_COMMON}/config/production.yaml has been created. Please update it accordingly if needed."
+fi
+

@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+exec "$SNAP/bin/ui-server" -e production -r "$SNAP_COMMON/config/" -c "" start
+
