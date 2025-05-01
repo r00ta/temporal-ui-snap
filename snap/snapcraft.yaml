@@ -22,7 +22,7 @@ apps:
 parts:
   temporal:
     plugin: nil
-    source: https://github.com/temporalio/ui-server/releases/download/v2.37.2/ui-server_2.37.2_linux_amd64.tar.gz 
+    source: https://github.com/temporalio/ui-server/releases/download/v2.37.2/ui-server_2.37.2_linux_amd64.tar.gz
     source-checksum: sha256/32cee64acc751a3c144dd337177688629b41101da659496d468e0b932bd0ace1
     override-pull: |
       set -eux
