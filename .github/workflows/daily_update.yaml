@@ -5,13 +5,16 @@ on:
     - cron: '0 3 * * *'  # Run daily at 03:00 UTC
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-snapcraft:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -46,7 +49,7 @@ jobs:
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "example@users.noreply.github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet; then
             git add snap/snapcraft.yaml
             git commit -m "Update snapcraft.yaml to version ${LATEST_VERSION}"
@@ -54,3 +57,6 @@ jobs:
           else
             echo "No changes to commit"
           fi
+
+      - name: Keepalive
+        uses: gautamkrishnar/keepalive-workflow@v2
