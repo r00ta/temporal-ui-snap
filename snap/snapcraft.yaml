@@ -1,5 +1,5 @@
 name: temporal-ui
-version: '2.53.1'
+version: '2.53.2'
 summary: Temporal UI 
 description: |
   Temporal UI as a snap.
@@ -22,8 +22,8 @@ apps:
 parts:
   temporal:
     plugin: nil
-    source: https://github.com/temporalio/ui-server/releases/download/v2.53.1/ui-server_2.53.1_linux_amd64.tar.gz
-    source-checksum: sha256/01fc2e5fced784cc552796c903bb14a34c2fd39ad47d7f4b6e21681ef605c062
+    source: https://github.com/temporalio/ui-server/releases/download/v2.53.2/ui-server_2.53.2_linux_amd64.tar.gz
+    source-checksum: sha256/9b633cec37fd2b244c5ba9d97b54a9b324ee860eb1a9130c7be0d68bf24cb406
     override-pull: |
       set -eux
       craftctl default
